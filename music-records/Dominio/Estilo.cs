@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace records
+namespace Dominio
 {
-    class Edicion
+    public class Estilo 
     {
-        public string Edicion_disco { get; set; }
+        public string Estilo_disco { get; set; }
 
+        
         public override string ToString()
         {
-            return Edicion_disco; 
+            return Estilo_disco;
         }
+
     }
 }

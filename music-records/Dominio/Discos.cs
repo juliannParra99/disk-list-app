@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace records
+namespace Dominio
 {
     
-    class Discos 
+    public class Discos 
     {
         public string Titulo { get; set; }
         public int CantidadCanciones { get; set; }

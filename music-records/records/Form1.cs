@@ -12,10 +12,10 @@ using Negocio;
 
 namespace records
 {
-    public partial class Form1 : Form
+    public partial class frmRecords : Form
     {
             private List<Discos> ListaDiscos; 
-        public Form1()
+        public frmRecords()
         {
             InitializeComponent();
         }

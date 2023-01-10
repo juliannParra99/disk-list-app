@@ -1,7 +1,7 @@
 ﻿
 namespace records
 {
-    partial class Form1
+    partial class frmRecords
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -60,7 +60,7 @@ namespace records
             this.pbDiscos.TabIndex = 1;
             this.pbDiscos.TabStop = false;
             // 
-            // Form1
+            // frmRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +70,7 @@ namespace records
             this.Controls.Add(this.dgvDiscos);
             this.MaximumSize = new System.Drawing.Size(973, 372);
             this.MinimumSize = new System.Drawing.Size(856, 336);
-            this.Name = "Form1";
+            this.Name = "frmRecords";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Records List";
             this.Load += new System.EventHandler(this.Form1_Load);

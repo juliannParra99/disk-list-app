@@ -42,16 +42,22 @@ namespace records
 
         }
 
-            private void cargarImagen(string imagen)
+        private void cargarImagen(string imagen)
+        {
+            try
             {
-                try
-                {
-                    pbDiscos.Load(imagen); 
-                }
-                catch (Exception ex)
-                {
-                    pbDiscos.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
-                }
+                pbDiscos.Load(imagen);
             }
+            catch (Exception ex)
+            {
+                pbDiscos.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaRecord alta = new frmAltaRecord();
+            alta.ShowDialog();
+        }
     }
 }

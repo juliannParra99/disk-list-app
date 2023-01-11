@@ -31,6 +31,7 @@ namespace records
         {
             this.dgvDiscos = new System.Windows.Forms.DataGridView();
             this.pbDiscos = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDiscos)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@ namespace records
             this.dgvDiscos.GridColor = System.Drawing.Color.Gray;
             this.dgvDiscos.Location = new System.Drawing.Point(62, 28);
             this.dgvDiscos.Name = "dgvDiscos";
-            this.dgvDiscos.Size = new System.Drawing.Size(501, 225);
+            this.dgvDiscos.Size = new System.Drawing.Size(501, 202);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
@@ -55,10 +56,20 @@ namespace records
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbDiscos.Location = new System.Drawing.Point(597, 28);
             this.pbDiscos.Name = "pbDiscos";
-            this.pbDiscos.Size = new System.Drawing.Size(215, 225);
+            this.pbDiscos.Size = new System.Drawing.Size(215, 202);
             this.pbDiscos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDiscos.TabIndex = 1;
             this.pbDiscos.TabStop = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(72, 250);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(91, 24);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmRecords
             // 
@@ -66,6 +77,7 @@ namespace records
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(840, 297);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbDiscos);
             this.Controls.Add(this.dgvDiscos);
             this.MaximumSize = new System.Drawing.Size(973, 372);
@@ -84,6 +96,7 @@ namespace records
 
         private System.Windows.Forms.DataGridView dgvDiscos;
         private System.Windows.Forms.PictureBox pbDiscos;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
 

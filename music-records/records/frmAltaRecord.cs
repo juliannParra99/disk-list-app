@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace records
 {
@@ -22,5 +24,29 @@ namespace records
 
         }
 
+        private void btnCancelar_click_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAceptar_click_Click(object sender, EventArgs e)
+        {
+            Discos discoNuevo = new Discos();
+            DiscosNegocio negocio = new DiscosNegocio();
+
+            try
+            {
+                discoNuevo.Titulo = txtTitulo.Text;
+                discoNuevo.CantidadCanciones = int.Parse(txtCantidadCanciones.Text);
+                // ahora hay que agregar esto a la base de datos usamos negocio
+                negocio.AgregarDisco(discoNuevo);
+                MessageBox.Show("Agregado exitosamente");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

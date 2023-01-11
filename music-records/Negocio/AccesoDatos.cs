@@ -7,6 +7,7 @@ using System.Data.SqlClient; //libreria
 
 namespace Negocio
 {
+    //esta clase va a tener los metodos y contenidos para realizar CRUD sobre la base de datos
     public class AccesoDatos
     {
         //atributos

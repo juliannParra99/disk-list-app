@@ -49,5 +49,24 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        //aca va a ir la logica para conectarme a  la base de datos
+        public void AgregarDisco(Discos nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into DISCOS (Titulo, CantidadCanciones)values('hola bebe', 17)");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
     }
 }

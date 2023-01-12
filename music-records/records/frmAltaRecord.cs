@@ -19,9 +19,21 @@ namespace records
             InitializeComponent();
         }
 
+        //para que traiga, al momentod de cargar el form, en el desplegable los datos que el usuario quiera elegir
         private void frmAltaRecord_Load(object sender, EventArgs e)
         {
+            EdicionNegocio edicionNegocio = new EdicionNegocio();
+            EstiloNegocio estiloNegocio = new EstiloNegocio();
 
+            try
+            {
+                cboEstilo.DataSource = estiloNegocio.listar();
+                cboEdicion.DataSource = edicionNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCancelar_click_Click(object sender, EventArgs e)
@@ -36,8 +48,11 @@ namespace records
 
             try
             {
-                discoNuevo.Titulo = txtTitulo.Text;
+                discoNuevo.Titulo = textTitulo.Text;
                 discoNuevo.CantidadCanciones = int.Parse(txtCanciones.Text);
+                discoNuevo.Estilo = (Estilo)cboEstilo.SelectedItem;
+                discoNuevo.Edicion = (Edicion)cboEdicion.SelectedItem;
+
 
                 // ahora hay que agregar esto a la base de datos usamos negocio
                 negocio.AgregarDisco(discoNuevo);
@@ -49,5 +64,6 @@ namespace records
                 MessageBox.Show(ex.ToString());
             }
         }
+
     }
 }

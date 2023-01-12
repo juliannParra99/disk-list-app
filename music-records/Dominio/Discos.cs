@@ -12,7 +12,9 @@ namespace Dominio
         public string Titulo { get; set; }
         public int CantidadCanciones { get; set; }
         public string UrlImagen { get; set; }
+        //asociacion : composicion
         public Estilo Estilo { get; set; } 
+        //asociacion: agregacion
         public Edicion Edicion { get; set; }
 
     }

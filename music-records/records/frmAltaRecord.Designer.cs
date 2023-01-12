@@ -31,12 +31,14 @@ namespace records
         {
             this.txtTitulo = new System.Windows.Forms.Label();
             this.txtCantidadCanciones = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblEstilo = new System.Windows.Forms.Label();
             this.textTitulo = new System.Windows.Forms.TextBox();
             this.txtCanciones = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnAceptar_click = new System.Windows.Forms.Button();
             this.btnCancelar_click = new System.Windows.Forms.Button();
+            this.cboEstilo = new System.Windows.Forms.ComboBox();
+            this.cboEdicion = new System.Windows.Forms.ComboBox();
+            this.lblEdicion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtTitulo
@@ -57,14 +59,14 @@ namespace records
             this.txtCantidadCanciones.TabIndex = 1;
             this.txtCantidadCanciones.Text = "Cantidad de Canciones:";
             // 
-            // label3
+            // lblEstilo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lblEstilo.AutoSize = true;
+            this.lblEstilo.Location = new System.Drawing.Point(110, 110);
+            this.lblEstilo.Name = "lblEstilo";
+            this.lblEstilo.Size = new System.Drawing.Size(35, 13);
+            this.lblEstilo.TabIndex = 2;
+            this.lblEstilo.Text = "Estilo:";
             // 
             // textTitulo
             // 
@@ -80,16 +82,9 @@ namespace records
             this.txtCanciones.Size = new System.Drawing.Size(171, 20);
             this.txtCanciones.TabIndex = 1;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(151, 107);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 20);
-            this.textBox3.TabIndex = 2;
-            // 
             // btnAceptar_click
             // 
-            this.btnAceptar_click.Location = new System.Drawing.Point(58, 167);
+            this.btnAceptar_click.Location = new System.Drawing.Point(79, 206);
             this.btnAceptar_click.Name = "btnAceptar_click";
             this.btnAceptar_click.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar_click.TabIndex = 3;
@@ -99,7 +94,7 @@ namespace records
             // 
             // btnCancelar_click
             // 
-            this.btnCancelar_click.Location = new System.Drawing.Point(216, 167);
+            this.btnCancelar_click.Location = new System.Drawing.Point(237, 206);
             this.btnCancelar_click.Name = "btnCancelar_click";
             this.btnCancelar_click.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar_click.TabIndex = 4;
@@ -107,17 +102,46 @@ namespace records
             this.btnCancelar_click.UseVisualStyleBackColor = true;
             this.btnCancelar_click.Click += new System.EventHandler(this.btnCancelar_click_Click);
             // 
+            // cboEstilo
+            // 
+            this.cboEstilo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstilo.FormattingEnabled = true;
+            this.cboEstilo.Location = new System.Drawing.Point(151, 107);
+            this.cboEstilo.Name = "cboEstilo";
+            this.cboEstilo.Size = new System.Drawing.Size(171, 21);
+            this.cboEstilo.TabIndex = 5;
+            // 
+            // cboEdicion
+            // 
+            this.cboEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEdicion.FormattingEnabled = true;
+            this.cboEdicion.Location = new System.Drawing.Point(151, 140);
+            this.cboEdicion.Name = "cboEdicion";
+            this.cboEdicion.Size = new System.Drawing.Size(171, 21);
+            this.cboEdicion.TabIndex = 6;
+            // 
+            // lblEdicion
+            // 
+            this.lblEdicion.AutoSize = true;
+            this.lblEdicion.Location = new System.Drawing.Point(100, 143);
+            this.lblEdicion.Name = "lblEdicion";
+            this.lblEdicion.Size = new System.Drawing.Size(45, 13);
+            this.lblEdicion.TabIndex = 7;
+            this.lblEdicion.Text = "Edicion:";
+            // 
             // frmAltaRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 339);
+            this.Controls.Add(this.lblEdicion);
+            this.Controls.Add(this.cboEdicion);
+            this.Controls.Add(this.cboEstilo);
             this.Controls.Add(this.btnCancelar_click);
             this.Controls.Add(this.btnAceptar_click);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.txtCanciones);
             this.Controls.Add(this.textTitulo);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblEstilo);
             this.Controls.Add(this.txtCantidadCanciones);
             this.Controls.Add(this.txtTitulo);
             this.MinimumSize = new System.Drawing.Size(396, 378);
@@ -134,11 +158,13 @@ namespace records
 
         private System.Windows.Forms.Label txtTitulo;
         private System.Windows.Forms.Label txtCantidadCanciones;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblEstilo;
         private System.Windows.Forms.TextBox textTitulo;
         private System.Windows.Forms.TextBox txtCanciones;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnAceptar_click;
         private System.Windows.Forms.Button btnCancelar_click;
+        private System.Windows.Forms.ComboBox cboEstilo;
+        private System.Windows.Forms.ComboBox cboEdicion;
+        private System.Windows.Forms.Label lblEdicion;
     }
 }

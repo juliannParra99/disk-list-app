@@ -34,6 +34,7 @@ namespace Negocio
 
         }
 
+        //lectura de datos de base de datos
         public void ejecutarLectura()
         {
             comando.Connection = conexion;
@@ -46,6 +47,22 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        //metodo para insertar;
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 

@@ -50,21 +50,25 @@ namespace Negocio
             }
         }
 
-        //aca va a ir la logica para conectarme a  la base de datos
+        //aca va a ir la logica para conectarme a  la base de datos e insertar los datos
         public void AgregarDisco(Discos nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("insert into DISCOS (Titulo, CantidadCanciones)values('hola bebe', 17)");
+                //inyecto los valores del nuevo disco que le pase al metodo agregarDisco
+                datos.setearConsulta("insert into DISCOS (Titulo, CantidadCanciones)values('"+nuevo.Titulo+"', "+nuevo.CantidadCanciones+")");
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
 

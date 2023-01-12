@@ -37,7 +37,8 @@ namespace records
             try
             {
                 discoNuevo.Titulo = txtTitulo.Text;
-                discoNuevo.CantidadCanciones = int.Parse(txtCantidadCanciones.Text);
+                discoNuevo.CantidadCanciones = int.Parse(txtCanciones.Text);
+
                 // ahora hay que agregar esto a la base de datos usamos negocio
                 negocio.AgregarDisco(discoNuevo);
                 MessageBox.Show("Agregado exitosamente");

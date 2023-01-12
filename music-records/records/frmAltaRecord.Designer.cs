@@ -33,7 +33,7 @@ namespace records
             this.txtCantidadCanciones = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textTitulo = new System.Windows.Forms.TextBox();
-            this.textCanciones = new System.Windows.Forms.TextBox();
+            this.txtCanciones = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnAceptar_click = new System.Windows.Forms.Button();
             this.btnCancelar_click = new System.Windows.Forms.Button();
@@ -73,12 +73,12 @@ namespace records
             this.textTitulo.Size = new System.Drawing.Size(171, 20);
             this.textTitulo.TabIndex = 0;
             // 
-            // textCanciones
+            // txtCanciones
             // 
-            this.textCanciones.Location = new System.Drawing.Point(151, 75);
-            this.textCanciones.Name = "textCanciones";
-            this.textCanciones.Size = new System.Drawing.Size(171, 20);
-            this.textCanciones.TabIndex = 1;
+            this.txtCanciones.Location = new System.Drawing.Point(151, 75);
+            this.txtCanciones.Name = "txtCanciones";
+            this.txtCanciones.Size = new System.Drawing.Size(171, 20);
+            this.txtCanciones.TabIndex = 1;
             // 
             // textBox3
             // 
@@ -115,7 +115,7 @@ namespace records
             this.Controls.Add(this.btnCancelar_click);
             this.Controls.Add(this.btnAceptar_click);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textCanciones);
+            this.Controls.Add(this.txtCanciones);
             this.Controls.Add(this.textTitulo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCantidadCanciones);
@@ -136,7 +136,7 @@ namespace records
         private System.Windows.Forms.Label txtCantidadCanciones;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textTitulo;
-        private System.Windows.Forms.TextBox textCanciones;
+        private System.Windows.Forms.TextBox txtCanciones;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnAceptar_click;
         private System.Windows.Forms.Button btnCancelar_click;

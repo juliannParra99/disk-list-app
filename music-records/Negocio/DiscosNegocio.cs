@@ -58,7 +58,10 @@ namespace Negocio
             try
             {
                 //inyecto los valores del nuevo disco que le pase al metodo agregarDisco
-                datos.setearConsulta("insert into DISCOS (Titulo, CantidadCanciones)values('"+nuevo.Titulo+"', "+nuevo.CantidadCanciones+")");
+                datos.setearConsulta("insert into DISCOS (Titulo, CantidadCanciones, IdEstilo, IdTipoEdicion)values('"+nuevo.Titulo+"', "+nuevo.CantidadCanciones+", @IdEstilo, @IdTipoEdicion)");
+                datos.setearParametro("@IdEstilo", nuevo.Estilo.Id);
+                datos.setearParametro("@IdTipoEdicion", nuevo.Edicion.Id);
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

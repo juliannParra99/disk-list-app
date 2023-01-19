@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Edicion
     {
+        public int Id { get; set; }
         public string Edicion_disco { get; set; }
 
         public override string ToString()

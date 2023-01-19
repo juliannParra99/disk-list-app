@@ -66,6 +66,12 @@ namespace Negocio
             }
         }
 
+        public void setearParametro(string parametro, object valor)
+        {
+            //addwithValue: permite que yo le carge el nombre del parametro y el valor (en object) que puede ser de caulquier tipo de dato
+            comando.Parameters.AddWithValue(parametro, valor);
+        }
+
         public void cerrarConexion()
         {
             if (lector != null)

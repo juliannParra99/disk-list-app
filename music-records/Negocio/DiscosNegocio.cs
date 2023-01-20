@@ -26,8 +26,12 @@ namespace Negocio
                 {
                     Discos aux = new Discos(); 
                     aux.Titulo = datos.Lector.GetString(0); 
-                    aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"]; 
-                    aux.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
+                    aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
+                    //
+                    //urlImagen suele dar nulo y no muestra la grilla.Lo valido, es recomendable hacerlo. Si es nulo no lo lee
+                    if (!(datos.Lector["UrlImagenTapa"] is DBNull))
+                        aux.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
+
                     aux.Estilo = new Estilo(); 
                     aux.Estilo.Estilo_disco = (string)datos.Lector["Estilo"];
                     aux.Edicion = new Edicion();

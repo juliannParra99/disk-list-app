@@ -14,7 +14,8 @@ namespace records
 {
     public partial class frmRecords : Form
     {
-            private List<Discos> ListaDiscos; 
+
+        private List<Discos> ListaDiscos; 
         public frmRecords()
         {
             InitializeComponent();
@@ -23,13 +24,23 @@ namespace records
         private void Form1_Load(object sender, EventArgs e) 
         {
             
-            DiscosNegocio negocio = new DiscosNegocio(); 
-            ListaDiscos  = negocio.listar();
-            dgvDiscos.DataSource = ListaDiscos;
-            
-            dgvDiscos.Columns["urlIMagen"].Visible = false; 
+            DiscosNegocio negocio = new DiscosNegocio();
 
-            cargarImagen(ListaDiscos[0].UrlImagen); 
+            // se agrega try catch para validar en caso de dbNull en columnas
+            try
+            {
+                ListaDiscos = negocio.listar();
+                dgvDiscos.DataSource = ListaDiscos;
+
+                dgvDiscos.Columns["urlIMagen"].Visible = false;
+
+                cargarImagen(ListaDiscos[0].UrlImagen);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 

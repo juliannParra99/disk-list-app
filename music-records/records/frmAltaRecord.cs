@@ -54,7 +54,7 @@ namespace records
                 discoNuevo.Edicion = (Edicion)cboEdicion.SelectedItem;
 
 
-                // ahora hay que agregar esto a la base de datos usamos negocio
+                // ahora hay que agregar esto a la base de datos; usamos negocio y su metodo agregar disco para insertarlo
                 negocio.AgregarDisco(discoNuevo);
                 MessageBox.Show("Agregado exitosamente");
             }

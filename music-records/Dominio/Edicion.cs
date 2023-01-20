@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Edicion
     {
+        //el id es fundamental por que es lo que vamos a utilizar para joinear ambas tablas; Comprender la relacion que ocupa en la app es fundamental
         public int Id { get; set; }
         public string Edicion_disco { get; set; }
 

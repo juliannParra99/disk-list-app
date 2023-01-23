@@ -50,6 +50,7 @@ namespace records
             {
                 discoNuevo.Titulo = textTitulo.Text;
                 discoNuevo.CantidadCanciones = int.Parse(txtCanciones.Text);
+                discoNuevo.UrlImagen = txtUrlImagen.Text;
                 discoNuevo.Estilo = (Estilo)cboEstilo.SelectedItem;
                 discoNuevo.Edicion = (Edicion)cboEdicion.SelectedItem;
 
@@ -65,5 +66,23 @@ namespace records
             }
         }
 
+        //para que cuando salgo del txtUrlImagen se muestre la imagen en el pictureBox
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrlImagen.Text);
+        }
+        //metodo copiado de frmRecords: lo puedo usar por que ambos picture box tienen el mismo nombre
+        //lo ideal seria tenerlo en una clase helper por ejemplo
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbDiscos.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbDiscos.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
     }
 }

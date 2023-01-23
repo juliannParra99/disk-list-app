@@ -23,7 +23,12 @@ namespace records
 
         private void Form1_Load(object sender, EventArgs e) 
         {
-            
+            cargar();
+
+        }
+
+        private void cargar()
+        {
             DiscosNegocio negocio = new DiscosNegocio();
 
             // se agrega try catch para validar en caso de dbNull en columnas
@@ -41,7 +46,6 @@ namespace records
 
                 MessageBox.Show(ex.ToString());
             }
-
         }
 
         
@@ -69,6 +73,8 @@ namespace records
         {
             frmAltaRecord alta = new frmAltaRecord();
             alta.ShowDialog();
+            //cuando se cierre el otro form,traigo los datos actualizados
+            cargar();
         }
     }
 }

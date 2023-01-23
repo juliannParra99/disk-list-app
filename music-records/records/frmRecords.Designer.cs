@@ -43,9 +43,12 @@ namespace records
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDiscos.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDiscos.GridColor = System.Drawing.Color.Gray;
             this.dgvDiscos.Location = new System.Drawing.Point(62, 28);
+            this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
+            this.dgvDiscos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDiscos.Size = new System.Drawing.Size(501, 202);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);

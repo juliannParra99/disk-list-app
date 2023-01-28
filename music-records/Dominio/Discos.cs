@@ -10,6 +10,8 @@ namespace Dominio
     
     public class Discos 
     {//uso annotation para  modificar el nombre de la prop que se muestra en la columna
+        //traigo el Id en la consulta sql
+        public int Id { get; set; }
         [DisplayName("Título")]
         public string Titulo { get; set; }
         [DisplayName("Canciones")]

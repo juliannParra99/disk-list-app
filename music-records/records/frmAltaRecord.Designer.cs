@@ -29,10 +29,10 @@ namespace records
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTitulo = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.txtCantidadCanciones = new System.Windows.Forms.Label();
             this.lblEstilo = new System.Windows.Forms.Label();
-            this.textTitulo = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtCanciones = new System.Windows.Forms.TextBox();
             this.btnAceptar_click = new System.Windows.Forms.Button();
             this.btnCancelar_click = new System.Windows.Forms.Button();
@@ -45,14 +45,14 @@ namespace records
             ((System.ComponentModel.ISupportInitialize)(this.pbDiscos)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtTitulo
+            // lblTitulo
             // 
-            this.txtTitulo.AutoSize = true;
-            this.txtTitulo.Location = new System.Drawing.Point(82, 43);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(36, 13);
-            this.txtTitulo.TabIndex = 0;
-            this.txtTitulo.Text = "Titulo:";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(82, 43);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(36, 13);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Titulo:";
             // 
             // txtCantidadCanciones
             // 
@@ -72,12 +72,12 @@ namespace records
             this.lblEstilo.TabIndex = 2;
             this.lblEstilo.Text = "Estilo:";
             // 
-            // textTitulo
+            // txtTitulo
             // 
-            this.textTitulo.Location = new System.Drawing.Point(136, 36);
-            this.textTitulo.Name = "textTitulo";
-            this.textTitulo.Size = new System.Drawing.Size(146, 20);
-            this.textTitulo.TabIndex = 0;
+            this.txtTitulo.Location = new System.Drawing.Point(136, 36);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(146, 20);
+            this.txtTitulo.TabIndex = 0;
             // 
             // txtCanciones
             // 
@@ -173,15 +173,15 @@ namespace records
             this.Controls.Add(this.btnCancelar_click);
             this.Controls.Add(this.btnAceptar_click);
             this.Controls.Add(this.txtCanciones);
-            this.Controls.Add(this.textTitulo);
+            this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.lblEstilo);
             this.Controls.Add(this.txtCantidadCanciones);
-            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.lblTitulo);
             this.MinimumSize = new System.Drawing.Size(551, 378);
             this.Name = "frmAltaRecord";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAltaRecord";
+            this.Text = "Nuevo Disco";
             this.Load += new System.EventHandler(this.frmAltaRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbDiscos)).EndInit();
             this.ResumeLayout(false);
@@ -191,10 +191,10 @@ namespace records
 
         #endregion
 
-        private System.Windows.Forms.Label txtTitulo;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label txtCantidadCanciones;
         private System.Windows.Forms.Label lblEstilo;
-        private System.Windows.Forms.TextBox textTitulo;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.TextBox txtCanciones;
         private System.Windows.Forms.Button btnAceptar_click;
         private System.Windows.Forms.Button btnCancelar_click;

@@ -19,12 +19,14 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("SELECT D.Titulo,D.CantidadCanciones,D.UrlImagenTapa, E.Descripcion Estilo,TE.Descripcion Edicion FROM DISCOS D, TIPOSEDICION TE, ESTILOS E where D.IdEstilo = E.Id  AND D.IdTipoEdicion = TE.Id");
+                //traigo el idTipo y el IdTipoEdicion de discos.Para que lo traiga el lector y pueda usarlo para traer el valor predeterminado de un desplegable
+                datos.setearConsulta("SELECT D.Titulo,D.CantidadCanciones,D.UrlImagenTapa, E.Descripcion Estilo,TE.Descripcion Edicion, D.IdEstilo, D.IdTipoEdicion, D.Id FROM DISCOS D, TIPOSEDICION TE, ESTILOS E where D.IdEstilo = E.Id  AND D.IdTipoEdicion = TE.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read()) 
                 {
-                    Discos aux = new Discos(); 
+                    Discos aux = new Discos();
+                    aux.Id = (int)datos.Lector["Id"];
                     aux.Titulo = datos.Lector.GetString(0); 
                     aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
                     //
@@ -32,9 +34,11 @@ namespace Negocio
                     if (!(datos.Lector["UrlImagenTapa"] is DBNull))
                         aux.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
 
-                    aux.Estilo = new Estilo(); 
+                    aux.Estilo = new Estilo();
+                    aux.Estilo.Id = (int)datos.Lector["IdEstilo"]; //hay que tenes muy en claro la relacion entre las tablas
                     aux.Estilo.Estilo_disco = (string)datos.Lector["Estilo"];
                     aux.Edicion = new Edicion();
+                    aux.Edicion.Id = (int)datos.Lector["IdTipoEdicion"];
                     aux.Edicion.Edicion_disco = (string)datos.Lector["Edicion"];
         
 
@@ -72,6 +76,33 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Discos disco)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update DISCOS set Titulo = @Titulo , CantidadCanciones = @Canciones, UrlImagenTapa = @UrlImagen, IdEstilo = @IdEstilo, IdTipoEdicion = @IdEdicion where id = @Id");
+                datos.setearParametro("@Titulo",disco.Titulo);
+                datos.setearParametro("@Canciones", disco.CantidadCanciones);
+                datos.setearParametro("@UrlImagen",disco.UrlImagen);
+                datos.setearParametro("@IdEstilo", disco.Estilo.Id);
+                datos.setearParametro("@IdEdicion", disco.Edicion.Id);
+                datos.setearParametro("@Id", disco.Id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             finally
             {

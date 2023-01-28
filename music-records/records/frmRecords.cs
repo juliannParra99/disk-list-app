@@ -36,7 +36,7 @@ namespace records
             {
                 ListaDiscos = negocio.listar();
                 dgvDiscos.DataSource = ListaDiscos;
-
+                dgvDiscos.Columns["Id"].Visible = false;
                 dgvDiscos.Columns["urlIMagen"].Visible = false;
 
                 cargarImagen(ListaDiscos[0].UrlImagen);
@@ -74,6 +74,16 @@ namespace records
             frmAltaRecord alta = new frmAltaRecord();
             alta.ShowDialog();
             //cuando se cierre el otro form,traigo los datos actualizados
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Discos seleccionado;
+            seleccionado = (Discos)dgvDiscos.CurrentRow.DataBoundItem;
+
+            frmAltaRecord modificar = new frmAltaRecord(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }

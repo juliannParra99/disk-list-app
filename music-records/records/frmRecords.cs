@@ -86,5 +86,27 @@ namespace records
             modificar.ShowDialog();
             cargar();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DiscosNegocio negocio = new DiscosNegocio();
+            Discos seleccionado;
+            try
+            {   //esto para que no se borre directamente al apretar el boton, y te pida confirmarlo
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro que queres eliminar este registro?","Eliminar",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Discos)dgvDiscos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

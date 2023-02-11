@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO; //se agrega para guardar el archivo local en una carpeta
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.Configuration; //agre la referencia en ensamblados, para poder usar la configuracion de app.config para guardar la imagen en la carpeta elegida
 
 namespace records
 {
@@ -28,6 +30,8 @@ namespace records
         }
 
         private  Discos disco = null;
+        //agrego el atributo privado
+        private OpenFileDialog archivo = null;
 
         //para que traiga, al momentod de cargar el form, en el desplegable los datos que el usuario quiera elegir
         private void frmAltaRecord_Load(object sender, EventArgs e)
@@ -102,6 +106,14 @@ namespace records
                     MessageBox.Show("Agregado exitosamente.");
                 }
 
+                //guardo la imagen si la levanto localmnte, cuando toco el boton aceptar
+                //si es distinto de null, por que paso port btnAgregarImagen_click, y la text box no contiene HTTP, osea si no es una imagen de internet, guardo la imagen en la carpeta
+                if (archivo != null && !(txtUrlImagen.Text.ToUpper().Contains("HTTP")))
+                {
+                    // la clase file tiene metodos utiles de tipo crud que son utiles y tienen muchas utilidades que vale la pena implementar o explorar
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["disks-app"] + archivo.SafeFileName);
+                }
+
                 Close();
                                                
             }
@@ -128,6 +140,25 @@ namespace records
             catch (Exception ex)
             {
                 pbDiscos.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtUrlImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+
+                //guardo la imagen en una carpeta
+                //tras la configuracion de referencia system.configuration
+                //copia el archivo en la carpeta seleccionada: aplicable para varias funcionalidades
+                //lo voy a poner en el btnAgregar, por que quiero que solo se guarde la imagen cuando toque el boton 'aceptar', no cuando  levante la imagen
+
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["disks-app"] + archivo.SafeFileName);
             }
         }
     }

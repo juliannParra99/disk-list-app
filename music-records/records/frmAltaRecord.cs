@@ -84,6 +84,11 @@ namespace records
                 {
                     disco = new Discos();
                 }
+
+                //si hay algun valor de la validacion que de true, entonces corto la ejecucion del resto
+                if (validarCamposObligatorios())//si esto da verdadero se ejecuta el return
+                    return;
+
                 //si no esta nulo no se crea un nuevo disco, va a remplazar los valores existentes
                 disco.Titulo = txtTitulo.Text;
                 disco.CantidadCanciones = int.Parse(txtCanciones.Text);
@@ -160,6 +165,40 @@ namespace records
 
                 //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["disks-app"] + archivo.SafeFileName);
             }
+        }
+
+        //metodo para validar que las  cajas de texto solo contengan numeros: lo ideal es colocarlo en una clase para no tener que copiarla
+        //cada vez que lo use
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char character in cadena)
+            {
+                if (!(char.IsNumber(character)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        //para que no se corte la ejecion de todo esto tiene que ser verdadero. 
+        private bool validarCamposObligatorios()
+        {
+            if (string.IsNullOrEmpty(txtTitulo.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del disco.");
+                return true; 
+            }
+            if (string.IsNullOrEmpty(txtCanciones.Text))
+            {
+                MessageBox.Show("Ingrese la cantidad de canciones.");
+                return true;
+            }
+            if (!(soloNumeros(txtCanciones.Text)))
+            {
+                MessageBox.Show("Por favor ingrese solo numeros");
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -12,15 +12,16 @@ namespace Dominio
     {//uso annotation para  modificar el nombre de la prop que se muestra en la columna
         //traigo el Id en la consulta sql
         public int Id { get; set; }
-        [DisplayName("Título")]
+        [DisplayName("Title")]
         public string Titulo { get; set; }
-        [DisplayName("Canciones")]
+        [DisplayName("Number of songs")]
         public int CantidadCanciones { get; set; }
         public string UrlImagen { get; set; }
         //asociacion : composicion
+        [DisplayName("Style")]
         public Estilo Estilo { get; set; }
         //asociacion: agregacion
-        [DisplayName("Edición")]
+        [DisplayName("Edition")]
         public Edicion Edicion { get; set; }
 
     }

@@ -104,7 +104,7 @@ namespace records
             Discos seleccionado;
             try
             {   //esto para que no se borre directamente al apretar el boton, y te pida confirmarlo
-                DialogResult respuesta = MessageBox.Show("¿Estas seguro que queres eliminar este registro?","Eliminar",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show("Are you sure you want to delete this record?", "Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Discos)dgvDiscos.CurrentRow.DataBoundItem;

@@ -21,11 +21,12 @@ namespace records
             InitializeComponent();
         }
 
+        //sobrecarga de constructor
         public  frmAltaRecord(Discos disco)
         {
             InitializeComponent();
             this.disco = disco;
-            Text = "Modificar Disco";
+            Text = "Update Disk";
 
         }
 
@@ -102,13 +103,13 @@ namespace records
                 if (disco.Id !=0)//agrego la property Id en discos
                 {
                     negocio.modificar(disco);
-                    MessageBox.Show("Modificado exitosamente.");
+                    MessageBox.Show("Modified successfully.");
 
                 }
                 else
                 {
                     negocio.AgregarDisco(disco);
-                    MessageBox.Show("Agregado exitosamente.");
+                    MessageBox.Show("Added successfully.");
                 }
 
                 //guardo la imagen si la levanto localmnte, cuando toco el boton aceptar

@@ -11,6 +11,7 @@ namespace Negocio
     
     public class DiscosNegocio
     {
+        //metodo para listar los valores 
         public List<Discos> listar()
         {
             List<Discos> lista = new List<Discos>();
@@ -35,7 +36,7 @@ namespace Negocio
                         aux.UrlImagen = (string)datos.Lector["UrlImagenTapa"];
 
                     aux.Estilo = new Estilo();
-                    aux.Estilo.Id = (int)datos.Lector["IdEstilo"]; //hay que tenes muy en claro la relacion entre las tablas
+                    aux.Estilo.Id = (int)datos.Lector["IdEstilo"];
                     aux.Estilo.Estilo_disco = (string)datos.Lector["Estilo"];
                     aux.Edicion = new Edicion();
                     aux.Edicion.Id = (int)datos.Lector["IdTipoEdicion"];

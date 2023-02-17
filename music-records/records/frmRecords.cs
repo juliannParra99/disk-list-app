@@ -31,7 +31,7 @@ namespace records
         {
             DiscosNegocio negocio = new DiscosNegocio();
 
-            // se agrega try catch para validar en caso de dbNull en columnas
+            // se valida en caso de dbNull en columnas
             try
             {
                 ListaDiscos = negocio.listar();
@@ -45,7 +45,7 @@ namespace records
                 MessageBox.Show(ex.ToString());
             }
         }
-        //creo metodo ocultar columnas
+        // metodo ocultar columnas
         private void ocultarColumnas()
         {
             dgvDiscos.Columns["Id"].Visible = false;
@@ -53,12 +53,12 @@ namespace records
 
         }
 
-        //para el buscador rapido: por que cuando el filtra se pone el DGV null, y despues trata de convertir el null en objetos trayendo la lista orignal y no puede y se rompe, 
-        //por lo que tenemos que validarla para que no se rompa en la lectura de esos registros que van desde filtrar a traer los datos
+        //para el buscador rapido: validacion
+        //si hay una grilla actual seleccionada y es ditinto de nulo, entonces trata de transformarlo y cargar la iamgen sino no
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDiscos.CurrentCell != null) //si no, no lo lee y no se rompe
-                //si hay una grilla actual seleccionada y es ditinto de nulo, entonces trata de transformarlo y cargar la iamgen sino no
+            if (dgvDiscos.CurrentCell != null) 
+                
             {
                 Discos seleccionado= (Discos)dgvDiscos.CurrentRow.DataBoundItem;
             
@@ -84,18 +84,25 @@ namespace records
         {
             frmAltaRecord alta = new frmAltaRecord();
             alta.ShowDialog();
-            //cuando se cierre el otro form,traigo los datos actualizados
             cargar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Discos seleccionado;
-            seleccionado = (Discos)dgvDiscos.CurrentRow.DataBoundItem;
+            try
+            {
+                seleccionado = (Discos)dgvDiscos.CurrentRow.DataBoundItem;
 
-            frmAltaRecord modificar = new frmAltaRecord(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+                frmAltaRecord modificar = new frmAltaRecord(seleccionado);
+                modificar.ShowDialog();
+                cargar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Choose the disk you want to modify.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -103,7 +110,7 @@ namespace records
             DiscosNegocio negocio = new DiscosNegocio();
             Discos seleccionado;
             try
-            {   //esto para que no se borre directamente al apretar el boton, y te pida confirmarlo
+            {   //confirmacion del delete
                 DialogResult respuesta = MessageBox.Show("Are you sure you want to delete this record?", "Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
@@ -130,10 +137,9 @@ namespace records
             if (filtro != "")
             {
                 //el valor del filtro va a ser a partir de la lista de lectura que creamos como atributo llamada: listaDiscos, a partir de esa lista
-                //vamos a generar una lista filtrada . el tipo list es una clase que contiene metodos y eventos
+                //vamos a generar una lista filtrada . 
                 //el findAll requiere una expresion lambda
                 discosFiltrados = ListaDiscos.FindAll(x => x.Titulo.ToUpper().Contains(filtro.ToUpper()) || x.Estilo.Estilo_disco.ToUpper().Contains(filtro.ToUpper())); //esto filtra sobre la lista original que es atributo, filtro lo que quiero
-                //y lo muestro en otra lista
 
             }
             else
@@ -143,8 +149,9 @@ namespace records
             }
 
             //limpiamos la lista anterior que se muestra
-            dgvDiscos.DataSource = null; //como reseteo la grilla tengo que volver a configurarle las columnas ocultas
+            dgvDiscos.DataSource = null;
 
+            //como resetie la grilla tengo que volver a configurarle las columnas ocultas
             //agregamos la lista filtrada
 
             dgvDiscos.DataSource = discosFiltrados;

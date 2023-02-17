@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient; //libreria
+using System.Data.SqlClient; 
 
 namespace Negocio
 {
-    //esta clase va a tener los metodos y contenidos para realizar CRUD sobre la base de datos
+    //esta clase va a tener los metodos y contenidos para realizar CRUD sobre la base de datos; se usa la libreria System.Data.SqlClient
+    
     public class AccesoDatos
     {
         //atributos
@@ -68,7 +69,7 @@ namespace Negocio
 
         public void setearParametro(string parametro, object valor)
         {
-            //addwithValue: permite que yo le carge el nombre del parametro y el valor (en object) que puede ser de caulquier tipo de dato
+            //addwithValue: permite que yo le carge el nombre del parametro y el valor (en object) que puede ser de cualquier tipo de dato
             comando.Parameters.AddWithValue(parametro, valor);
         }
 

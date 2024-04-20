@@ -1,5 +1,11 @@
 # disk-list-app
 
+
+
+https://github.com/juliannParra99/disk-list-app/assets/104667764/b9d106e3-8ad8-454c-97af-fae0b2d17c25
+
+
+
 # Desktop project for managing music artist albums
 
 This is a desktop application developed in C# .NET with WinForms that allows for CRUD (Create, Read, Update, Delete) operations on data related to music artist albums. The application is able to connect to a SQL Server database to retrieve album data, allowing for modifications, deletions, and advanced searches.
